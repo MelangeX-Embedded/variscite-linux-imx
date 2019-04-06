@@ -409,6 +409,15 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c1>;
 	status = "okay";
+
+	gt911: touchscreen@5d {
+		compatible = "goodix,gt911";
+		reg = <0x5d>;
+		interrupt-parent = <&gpio4>;
+		interrupts = <17 0>;
+		irq-gpios = <&gpio4 17 0>;
+		reset-gpios = <&gpio5 8 0>;
+	};
 };
 
 &i2c2 {
