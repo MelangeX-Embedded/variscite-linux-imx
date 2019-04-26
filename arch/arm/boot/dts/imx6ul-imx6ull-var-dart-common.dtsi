@@ -177,11 +177,13 @@
 	};
 };
 
+/*
 &can1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_flexcan1>;
 	status = "okay";
 };
+*/
 
 &can2 {
 	pinctrl-names = "default";
@@ -197,6 +199,7 @@
 	fsl,ldo-bypass = <0>; /* DCDC, ldo-enable */
 };
 
+/*
 &lcdif {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_lcdif_dat
@@ -228,12 +231,15 @@
 		};
 	};
 };
+*/
 
+/*
 &pwm1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_pwm1>;
 	status = "okay";
 };
+*/
 
 &pxp {
 	status = "okay";
@@ -255,6 +261,7 @@
 	status = "okay";
 };
 
+/*
 &tsc {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_tsc>;
@@ -267,6 +274,7 @@
 	status = "okay";
 #endif
 };
+*/
 
 /* Console UART */
 &uart1 {
@@ -404,12 +412,14 @@
 };
 #endif
 
+/*
 &i2c1 {
 	clock-frequency = <400000>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c1>;
 	status = "okay";
 };
+*/
 
 &i2c2 {
 	clock_frequency = <100000>;
@@ -453,8 +463,8 @@
 	imx6ul-evk {
 		pinctrl_hog_1: hoggrp-1 {
 			fsl,pins = <
-				MX6UL_PAD_CSI_HSYNC__GPIO4_IO20		0x1b0b0	/* User LED */
-				MX6UL_PAD_GPIO1_IO00__GPIO1_IO00	0x17059	/* User Button */
+				/* MX6UL_PAD_CSI_HSYNC__GPIO4_IO20		0x1b0b0	*/ /* User LED */
+				/* MX6UL_PAD_GPIO1_IO00__GPIO1_IO00	0x17059	*/ /* User Button */
 				MX6UL_PAD_GPIO1_IO07__ENET2_MDC		0x1b0b0
 				MX6UL_PAD_GPIO1_IO06__ENET2_MDIO	0x1b0b0
 #ifdef WIFI
@@ -490,12 +500,14 @@
 			>;
 		};
 
+/*
 		pinctrl_flexcan1: flexcan1grp{
 			fsl,pins = <
 				MX6UL_PAD_LCD_DATA09__FLEXCAN1_RX	0x1b020
 				MX6UL_PAD_LCD_DATA08__FLEXCAN1_TX	0x1b020
 			>;
 		};
+*/
 
 		pinctrl_flexcan2: flexcan2grp{
 			fsl,pins = <
@@ -504,6 +516,7 @@
 			>;
 		};
 
+/*
 		pinctrl_lcdif_dat: lcdifdatgrp {
 			fsl,pins = <
 				MX6UL_PAD_LCD_DATA02__LCDIF_DATA02	0x79
@@ -526,6 +539,7 @@
 				MX6UL_PAD_LCD_DATA23__LCDIF_DATA23	0x79
 			>;
 		};
+*/
 
 		pinctrl_lcdif_ctrl: lcdifctrlgrp {
 			fsl,pins = <
@@ -534,11 +548,13 @@
 			>;
 		};
 
+/*
 		pinctrl_pwm1: pwm1grp {
 			fsl,pins = <
 				MX6UL_PAD_LCD_DATA00__PWM1_OUT		0x110b0
 			>;
 		};
+*/
 
 		pinctrl_uart1: uart1grp {
 			fsl,pins = <
@@ -669,12 +685,14 @@
 		};
 #endif
 
+/*
 		pinctrl_i2c1: i2c1grp {
 			fsl,pins = <
 				MX6UL_PAD_UART4_TX_DATA__I2C1_SCL	0x4001b8b0
 				MX6UL_PAD_UART4_RX_DATA__I2C1_SDA	0x4001b8b0
 			>;
 		};
+*/
 
 		pinctrl_i2c2: i2c2grp {
 			fsl,pins = <
@@ -683,6 +701,7 @@
 			>;
 		};
 
+/*
 		pinctrl_tsc: tscgrp {
 			fsl,pins = <
 				MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0xb0
@@ -691,6 +710,7 @@
 				MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0xb0
 			>;
 		};
+*/
 
 		pinctrl_sai1: sai1grp {
 			fsl,pins = <
@@ -716,6 +736,21 @@
 				MX6UL_PAD_GPIO1_IO08__WDOG1_WDOG_B	0x78b0
 			>;
 		};
+
+		pinctrl_ecspi1_1: ecspi1grp {
+			fsl,pins = <
+				MX6UL_PAD_LCD_DATA23__ECSPI1_MISO	0x100b1
+				MX6UL_PAD_LCD_DATA22__ECSPI1_MOSI	0x100b1
+				MX6UL_PAD_LCD_DATA20__ECSPI1_SCLK	0x100b1
+				MX6UL_PAD_LCD_DATA13__GPIO3_IO18	0x100b1
+				MX6UL_PAD_LCD_DATA09__GPIO3_IO14	0x100b1
+				MX6UL_PAD_LCD_DATA11__GPIO3_IO16	0x100b1
+				MX6UL_PAD_LCD_DATA21__ECSPI1_SS0	0x100b1
+				MX6UL_PAD_LCD_DATA05__ECSPI1_SS1	0x100b1
+				MX6UL_PAD_LCD_DATA06__ECSPI1_SS2	0x100b1
+				MX6UL_PAD_LCD_DATA07__ECSPI1_SS3	0x100b1
+			>;
+		};
 	};
 };
 
@@ -725,4 +760,76 @@
 
 &snvs_poweroff {
 	status = "okay";
+};
+
+&ecspi1 {
+	fsl,spi-num-chipselects = <7>;
+	cs-gpios = <&gpio3 18 0>, <&gpio3 14 0>, <&gpio3 16 0>, <&gpio3 26 0>, <&gpio3 10 0>, <&gpio3 11 0>, <&gpio3 12 0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_ecspi1_1>;
+	status = "okay";
+
+	SPI_DUART1: sc16is752@0 {
+		compatible = "nxp,sc16is752";
+		reg = <0>;
+		clocks = <&clks IMX6UL_CLK_ECSPI1>;
+		interrupt-parent = <&gpio1>;
+		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
+		/*
+		gpio-controller;
+		#gpio-cells = <2>;
+		*/
+	};
+
+	SPI_DUART2: sc16is752@1 {
+		compatible = "nxp,sc16is752";
+		reg = <1>;
+		clocks = <&clks IMX6UL_CLK_ECSPI1>;
+		interrupt-parent = <&gpio4>;
+		interrupts = <20 IRQ_TYPE_EDGE_FALLING>;
+		/*
+		gpio-controller;
+		#gpio-cells = <2>;
+		*/
+	};
+
+	NVSRSM: spi_sram@0 {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "microchip,mchp23lcv1024";
+		reg = <2>;
+		spi-max-frequency = <20000000>;
+	};
+
+	ECSPI1_SS0: spidev@0 {
+		compatible = "spidev";
+		spi-max-frequency = <12000000>;
+		reg = <3>;
+		interrupt-parent = <&gpio1>;
+		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+	};
+
+	ECSPI1_SS1: spidev@1 {
+		compatible = "spidev";
+		spi-max-frequency = <12000000>;
+		reg = <4>;
+		interrupt-parent = <&gpio1>;
+		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+	};
+
+	ECSPI1_SS2: spidev@2 {
+		compatible = "spidev";
+		spi-max-frequency = <12000000>;
+		reg = <5>;
+		interrupt-parent = <&gpio1>;
+		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+	};
+
+	ECSPI1_SS3: spidev@3 {
+		compatible = "spidev";
+		spi-max-frequency = <12000000>;
+		reg = <6>;
+		interrupt-parent = <&gpio1>;
+		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+	};
 };
