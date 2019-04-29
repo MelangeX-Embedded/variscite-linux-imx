@@ -745,10 +745,10 @@
 				MX6UL_PAD_LCD_DATA13__GPIO3_IO18	0x100b1
 				MX6UL_PAD_LCD_DATA09__GPIO3_IO14	0x100b1
 				MX6UL_PAD_LCD_DATA11__GPIO3_IO16	0x100b1
-				MX6UL_PAD_LCD_DATA21__ECSPI1_SS0	0x100b1
-				MX6UL_PAD_LCD_DATA05__ECSPI1_SS1	0x100b1
-				MX6UL_PAD_LCD_DATA06__ECSPI1_SS2	0x100b1
-				MX6UL_PAD_LCD_DATA07__ECSPI1_SS3	0x100b1
+				MX6UL_PAD_LCD_DATA21__GPIO3_IO26	0x100b1
+				MX6UL_PAD_LCD_DATA05__GPIO3_IO10	0x100b1
+				MX6UL_PAD_LCD_DATA06__GPIO3_IO11	0x100b1
+				MX6UL_PAD_LCD_DATA07__GPIO3_IO12	0x100b1
 			>;
 		};
 	};
@@ -764,7 +764,7 @@
 
 &ecspi1 {
 	fsl,spi-num-chipselects = <7>;
-	cs-gpios = <&gpio3 18 0>, <&gpio3 14 0>, <&gpio3 16 0>, <&gpio3 26 0>, <&gpio3 10 0>, <&gpio3 11 0>, <&gpio3 12 0>;
+	cs-gpios = <&gpio3 18 1>, <&gpio3 14 1>, <&gpio3 16 1>, <&gpio3 26 1>, <&gpio3 10 1>, <&gpio3 11 1>, <&gpio3 12 1>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_ecspi1_1>;
 	status = "okay";
@@ -775,6 +775,7 @@
 		clocks = <&clks IMX6UL_CLK_ECSPI1>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
+		spi-max-frequency = <12000000>;
 		/*
 		gpio-controller;
 		#gpio-cells = <2>;
@@ -787,6 +788,7 @@
 		clocks = <&clks IMX6UL_CLK_ECSPI1>;
 		interrupt-parent = <&gpio4>;
 		interrupts = <20 IRQ_TYPE_EDGE_FALLING>;
+		spi-max-frequency = <12000000>;
 		/*
 		gpio-controller;
 		#gpio-cells = <2>;
@@ -798,7 +800,7 @@
 		#size-cells = <1>;
 		compatible = "microchip,mchp23lcv1024";
 		reg = <2>;
-		spi-max-frequency = <20000000>;
+		spi-max-frequency = <12000000>;
 	};
 
 	ECSPI1_SS0: spidev@0 {
