@@ -177,14 +177,6 @@
 	};
 };
 
-/*
-&can1 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_flexcan1>;
-	status = "okay";
-};
-*/
-
 &can2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_flexcan2>;
@@ -198,48 +190,6 @@
 	fsl,cpu_pdnscr_iso = <0x1>;
 	fsl,ldo-bypass = <0>; /* DCDC, ldo-enable */
 };
-
-/*
-&lcdif {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_lcdif_dat
-		     &pinctrl_lcdif_ctrl>;
-	display = <&display0>;
-	status = "okay";
-
-	display0: display {
-		bits-per-pixel = <16>;
-		bus-width = <24>;
-
-		display-timings {
-			native-mode = <&timing0>;
-			timing0: timing0 {
-				clock-frequency =<35000000>;
-				hactive = <800>;
-				vactive = <480>;
-				hfront-porch = <40>;
-				hback-porch = <40>;
-				hsync-len = <48>;
-				vback-porch = <29>;
-				vfront-porch = <13>;
-				vsync-len = <3>;
-				hsync-active = <0>;
-				vsync-active = <0>;
-				de-active = <1>;
-				pixelclk-active = <0>;
-			};
-		};
-	};
-};
-*/
-
-/*
-&pwm1 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_pwm1>;
-	status = "okay";
-};
-*/
 
 &pxp {
 	status = "okay";
@@ -260,21 +210,6 @@
 	vref-supply = <&touch_3v3_regulator>;
 	status = "okay";
 };
-
-/*
-&tsc {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_tsc>;
-	xnur-gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;
-	measure_delay_time = <0xffff>;
-	pre_charge_time = <0xfff>;
-#ifdef WIFI
-	status = "disabled";
-#else
-	status = "okay";
-#endif
-};
-*/
 
 /* Console UART */
 &uart1 {
@@ -428,15 +363,6 @@
 };
 #endif
 
-/*
-&i2c1 {
-	clock-frequency = <400000>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i2c1>;
-	status = "okay";
-};
-*/
-
 &i2c2 {
 	clock_frequency = <100000>;
 	pinctrl-names = "default";
@@ -565,63 +491,12 @@
 			>;
 		};
 
-/*
-		pinctrl_flexcan1: flexcan1grp{
-			fsl,pins = <
-				MX6UL_PAD_LCD_DATA09__FLEXCAN1_RX	0x1b020
-				MX6UL_PAD_LCD_DATA08__FLEXCAN1_TX	0x1b020
-			>;
-		};
-*/
-
 		pinctrl_flexcan2: flexcan2grp{
 			fsl,pins = <
 				MX6UL_PAD_UART2_RTS_B__FLEXCAN2_RX	0x1b020
 				MX6UL_PAD_UART2_CTS_B__FLEXCAN2_TX	0x1b020
 			>;
 		};
-
-/*
-		pinctrl_lcdif_dat: lcdifdatgrp {
-			fsl,pins = <
-				MX6UL_PAD_LCD_DATA02__LCDIF_DATA02	0x79
-				MX6UL_PAD_LCD_DATA03__LCDIF_DATA03	0x79
-				MX6UL_PAD_LCD_DATA04__LCDIF_DATA04	0x79
-				MX6UL_PAD_LCD_DATA05__LCDIF_DATA05	0x79
-				MX6UL_PAD_LCD_DATA06__LCDIF_DATA06	0x79
-				MX6UL_PAD_LCD_DATA07__LCDIF_DATA07	0x79
-				MX6UL_PAD_LCD_DATA10__LCDIF_DATA10	0x79
-				MX6UL_PAD_LCD_DATA11__LCDIF_DATA11	0x79
-				MX6UL_PAD_LCD_DATA12__LCDIF_DATA12	0x79
-				MX6UL_PAD_LCD_DATA13__LCDIF_DATA13	0x79
-				MX6UL_PAD_LCD_DATA14__LCDIF_DATA14	0x79
-				MX6UL_PAD_LCD_DATA15__LCDIF_DATA15	0x79
-				MX6UL_PAD_LCD_DATA18__LCDIF_DATA18	0x79
-				MX6UL_PAD_LCD_DATA19__LCDIF_DATA19	0x79
-				MX6UL_PAD_LCD_DATA20__LCDIF_DATA20	0x79
-				MX6UL_PAD_LCD_DATA21__LCDIF_DATA21	0x79
-				MX6UL_PAD_LCD_DATA22__LCDIF_DATA22	0x79
-				MX6UL_PAD_LCD_DATA23__LCDIF_DATA23	0x79
-			>;
-		};
-*/
-
-/*
-		pinctrl_lcdif_ctrl: lcdifctrlgrp {
-			fsl,pins = <
-				MX6UL_PAD_LCD_CLK__LCDIF_CLK		0x79
-				MX6UL_PAD_LCD_ENABLE__LCDIF_ENABLE	0x79
-			>;
-		};
-*/
-
-/*
-		pinctrl_pwm1: pwm1grp {
-			fsl,pins = <
-				MX6UL_PAD_LCD_DATA00__PWM1_OUT		0x110b0
-			>;
-		};
-*/
 
 		pinctrl_uart1: uart1grp {
 			fsl,pins = <
@@ -770,32 +645,12 @@
 		};
 #endif
 
-/*
-		pinctrl_i2c1: i2c1grp {
-			fsl,pins = <
-				MX6UL_PAD_UART4_TX_DATA__I2C1_SCL	0x4001b8b0
-				MX6UL_PAD_UART4_RX_DATA__I2C1_SDA	0x4001b8b0
-			>;
-		};
-*/
-
 		pinctrl_i2c2: i2c2grp {
 			fsl,pins = <
 				MX6UL_PAD_UART5_TX_DATA__I2C2_SCL	0x4001b8b0
 				MX6UL_PAD_UART5_RX_DATA__I2C2_SDA	0x4001b8b0
 			>;
 		};
-
-/*
-		pinctrl_tsc: tscgrp {
-			fsl,pins = <
-				MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0xb0
-				MX6UL_PAD_GPIO1_IO02__GPIO1_IO02	0xb0
-				MX6UL_PAD_GPIO1_IO03__GPIO1_IO03	0xb0
-				MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0xb0
-			>;
-		};
-*/
 
 		pinctrl_sai1: sai1grp {
 			fsl,pins = <
