@@ -694,7 +694,7 @@
 		clocks = <&clks IMX6UL_CLK_ECSPI1>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
-		spi-max-frequency = <12000000>;
+		spi-max-frequency = <6000000>;
 		/*
 		gpio-controller;
 		#gpio-cells = <2>;
@@ -707,7 +707,7 @@
 		clocks = <&clks IMX6UL_CLK_ECSPI1>;
 		interrupt-parent = <&gpio4>;
 		interrupts = <20 IRQ_TYPE_EDGE_FALLING>;
-		spi-max-frequency = <12000000>;
+		spi-max-frequency = <6000000>;
 		/*
 		gpio-controller;
 		#gpio-cells = <2>;
@@ -719,12 +719,12 @@
 		#size-cells = <1>;
 		compatible = "microchip,mchp23lcv1024";
 		reg = <2>;
-		spi-max-frequency = <12000000>;
+		spi-max-frequency = <6000000>;
 	};
 
 	ECSPI1_SS0: spidev@0 {
 		compatible = "spidev";
-		spi-max-frequency = <12000000>;
+		spi-max-frequency = <6000000>;
 		reg = <3>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
@@ -732,7 +732,7 @@
 
 	ECSPI1_SS1: spidev@1 {
 		compatible = "spidev";
-		spi-max-frequency = <12000000>;
+		spi-max-frequency = <6000000>;
 		reg = <4>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
@@ -740,7 +740,7 @@
 
 	ECSPI1_SS2: spidev@2 {
 		compatible = "spidev";
-		spi-max-frequency = <12000000>;
+		spi-max-frequency = <6000000>;
 		reg = <5>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
@@ -748,7 +748,7 @@
 
 	ECSPI1_SS3: spidev@3 {
 		compatible = "spidev";
-		spi-max-frequency = <12000000>;
+		spi-max-frequency = <6000000>;
 		reg = <6>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
