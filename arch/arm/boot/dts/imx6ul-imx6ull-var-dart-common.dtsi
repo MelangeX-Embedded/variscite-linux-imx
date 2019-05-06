@@ -712,10 +712,12 @@
 };
 
 &ecspi1 {
-	fsl,spi-num-chipselects = <7>;
+	fsl,spi-num-chipselects = <4>;
 	cs-gpios =	<&gpio3 18 1>,
 			<&gpio3 14 1>,
+			/*
 			<&gpio3 16 1>,
+			*/
 			<&gpio3 26 1>,
 			<&gpio3 10 1>,
 			<&gpio3 11 1>,
@@ -725,7 +727,9 @@
 		&pinctrl_ecspi1
 		&pinctrl_ecspi1_duart1_cs
 		&pinctrl_ecspi1_duart2_cs
+		/*
 		&pinctrl_ecspi1_nvsram_cs
+		*/
 		&pinctrl_ecspi1_ss0_cs
 		&pinctrl_ecspi1_ss1_cs
 		&pinctrl_ecspi1_ss2_cs
@@ -769,6 +773,7 @@
 		};
 	};
 
+/*
 	NVSRSM: spi_sram@2 {
 		#address-cells = <1>;
 		#size-cells = <1>;
@@ -776,37 +781,46 @@
 		reg = <2>;
 		spi-max-frequency = <6000000>;
 	};
+*/
 
-	ECSPI1_SS0: spidev@3 {
+	ECSPI1_SS0: spidev@2 {
+		compatible = "spidev";
+		spi-max-frequency = <6000000>;
+		reg = <2>;
+		/*
+		interrupt-parent = <&gpio1>;
+		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+		*/
+	};
+
+	ECSPI1_SS1: spidev@3 {
 		compatible = "spidev";
 		spi-max-frequency = <6000000>;
 		reg = <3>;
+		/*
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+		*/
 	};
 
-	ECSPI1_SS1: spidev@4 {
+	ECSPI1_SS2: spidev@4 {
 		compatible = "spidev";
 		spi-max-frequency = <6000000>;
 		reg = <4>;
+		/*
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+		*/
 	};
 
-	ECSPI1_SS2: spidev@5 {
+	ECSPI1_SS3: spidev@5 {
 		compatible = "spidev";
 		spi-max-frequency = <6000000>;
 		reg = <5>;
+		/*
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
-	};
-
-	ECSPI1_SS3: spidev@6 {
-		compatible = "spidev";
-		spi-max-frequency = <6000000>;
-		reg = <6>;
-		interrupt-parent = <&gpio1>;
-		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+		*/
 	};
 };
 
