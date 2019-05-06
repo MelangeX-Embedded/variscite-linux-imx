@@ -238,6 +238,7 @@
 &uart4 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart4>;
+	dcd-gpios = <&gpio1 5 GPIO_ACTIVE_LOW>;
 	fsl,uart-has-rtscts;
 	status = "okay";
 };
@@ -246,6 +247,7 @@
 &uart5 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart5>;
+	dcd-gpios = <&gpio5 1 GPIO_ACTIVE_LOW>;
 	fsl,uart-has-rtscts;
 	status = "okay";
 };
@@ -675,29 +677,16 @@
 				MX6UL_PAD_LCD_DATA09__GPIO3_IO14	0x100b1 /* SPI_DUART2_CS */
 			>;
 		};
+
 		pinctrl_ecspi1_nvsram_cs: ecspi1_cs2 {
 			fsl,pins = <
 				MX6UL_PAD_LCD_DATA11__GPIO3_IO16	0x100b1 /* NVSRAM_CS */
 			>;
 		};
-		pinctrl_ecspi1_ss0_cs: ecspi1_cs3 {
-			fsl,pins = <
-				MX6UL_PAD_LCD_DATA21__GPIO3_IO26	0x100b1 /* ECSPI1_SS0 */
-			>;
-		};
-		pinctrl_ecspi1_ss1_cs: ecspi1_cs4 {
+
+		pinctrl_ecspi1_ss1_cs: ecspi1_cs3 {
 			fsl,pins = <
 				MX6UL_PAD_LCD_DATA05__GPIO3_IO10	0x100b1 /* ECSPI1_SS1 */
-			>;
-		};
-		pinctrl_ecspi1_ss2_cs: ecspi1_cs5 {
-			fsl,pins = <
-				MX6UL_PAD_LCD_DATA06__GPIO3_IO11	0x100b1 /* ECSPI1_SS2 */
-			>;
-		};
-		pinctrl_ecspi1_ss3_cs: ecspi1_cs6 {
-			fsl,pins = <
-				MX6UL_PAD_LCD_DATA07__GPIO3_IO12	0x100b1 /* ECSPI1_SS3 */
 			>;
 		};
 	};
@@ -712,28 +701,22 @@
 };
 
 &ecspi1 {
-	fsl,spi-num-chipselects = <4>;
+	fsl,spi-num-chipselects = <3>;
 	cs-gpios =	<&gpio3 18 1>,
 			<&gpio3 14 1>,
 			/*
 			<&gpio3 16 1>,
 			*/
-			<&gpio3 26 1>,
-			<&gpio3 10 1>,
-			<&gpio3 11 1>,
-			<&gpio3 12 1>;
+			<&gpio3 10 1>;
 	pinctrl-names = "default";
 	pinctrl-0 = <
-		&pinctrl_ecspi1
+		&pinctrl_ecspi1 
 		&pinctrl_ecspi1_duart1_cs
 		&pinctrl_ecspi1_duart2_cs
 		/*
 		&pinctrl_ecspi1_nvsram_cs
 		*/
-		&pinctrl_ecspi1_ss0_cs
 		&pinctrl_ecspi1_ss1_cs
-		&pinctrl_ecspi1_ss2_cs
-		&pinctrl_ecspi1_ss3_cs
 		>;
 	status = "okay";
 
@@ -783,53 +766,11 @@
 	};
 */
 
-	ECSPI1_SS0: spidev@2 {
+	ECSPI1_SS1: spidev@2 {
 		compatible = "spidev";
 		spi-max-frequency = <6000000>;
 		reg = <2>;
-		/*
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
-		*/
-	};
-
-	ECSPI1_SS1: spidev@3 {
-		compatible = "spidev";
-		spi-max-frequency = <6000000>;
-		reg = <3>;
-		/*
-		interrupt-parent = <&gpio1>;
-		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
-		*/
-	};
-
-	ECSPI1_SS2: spidev@4 {
-		compatible = "spidev";
-		spi-max-frequency = <6000000>;
-		reg = <4>;
-		/*
-		interrupt-parent = <&gpio1>;
-		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
-		*/
-	};
-
-	ECSPI1_SS3: spidev@5 {
-		compatible = "spidev";
-		spi-max-frequency = <6000000>;
-		reg = <5>;
-		/*
-		interrupt-parent = <&gpio1>;
-		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
-		*/
 	};
 };
-
-/*
-&clks {
-	sc16is752_clk: sc16is752_clk_grp {
-		compatible = "fixed-clock";
-		#clock-cells = <0>;
-		clock-frequency = <11059200>;
-	};
-};
-*/
