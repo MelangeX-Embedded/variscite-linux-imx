@@ -769,6 +769,15 @@
 			};
 		};
 	};
+
+	gt911: touchscreen@5d {
+		compatible = "goodix,gt911";
+		reg = <0x5d>;
+		interrupt-parent = <&gpio3>;
+		interrupts = <20 0>;
+		irq-gpios = <&gpio3 15 0>;
+		reset-gpios = <&gpio4 21 0>;
+	};
 };
 
 &pcie0 {
