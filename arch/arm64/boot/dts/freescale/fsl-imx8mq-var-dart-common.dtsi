@@ -164,8 +164,15 @@
 
 &iomuxc {
 	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_hog>;
 
 	imx8m-var-dart {
+		pinctrl_hog: hoggrp {
+			fsl,pins = <
+				MX8MQ_IOMUXC_SAI5_RXC_GPIO3_IO20		0xC6 	/* TSC (Goodix) interrupt pin */
+				MX8MQ_IOMUXC_SAI2_RXFS_GPIO4_IO21               0x56	/* TSC (Goodix) reset pin */
+			>;
+		};
 
 		pinctrl_csi1: csi1grp {
 			fsl,pins = <
@@ -768,6 +775,15 @@
 				remote-endpoint = <&mipi2_sensor_ep>;
 			};
 		};
+	};
+
+	gt911: touchscreen@5d {
+		compatible = "goodix,gt911";
+		reg = <0x5d>;
+		interrupt-parent = <&gpio3>;
+		interrupts = <20 0>;
+		irq-gpios = <&gpio3 20 0>;
+		reset-gpios = <&gpio4 21 0>;
 	};
 };
 
