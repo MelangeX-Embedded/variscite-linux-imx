@@ -143,17 +143,7 @@
 	phy-reset-on-resume;
 	phy-handle = <&ethphy0>;
 	status = "okay";
-};
 
-&fec2 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_enet2>;
-	phy-mode = "rmii";
-	phy-handle = <&ethphy1>;
-	phy-reset-gpios=<&gpio1 10 1>;
-	phy-reset-duration=<100>;
-	phy-reset-on-resume;
-	status = "okay";
 	mdio {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -164,14 +154,6 @@
 			clocks = <&rmii_ref_clk>;
 			clock-names = "rmii-ref";
 			reg = <1>;
-		};
-
-		ethphy1: ethernet-phy@3 {
-			compatible = "ethernet-phy-ieee802.3-c22";
-			micrel,rmii-reference-clock-select-25-mhz;
-			clocks = <&rmii_ref_clk>;
-			clock-names = "rmii-ref";
-			reg = <3>;
 		};
 	};
 };
@@ -286,6 +268,12 @@
 &uart3 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart3>;
+	status = "okay";
+};
+
+&uart8 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart8>;
 	status = "okay";
 };
 
@@ -453,8 +441,8 @@
 			fsl,pins = <
 				MX6UL_PAD_CSI_HSYNC__GPIO4_IO20		0x1b0b0	/* User LED */
 				MX6UL_PAD_GPIO1_IO00__GPIO1_IO00	0x17059	/* User Button */
-				MX6UL_PAD_GPIO1_IO07__ENET2_MDC		0x1b0b0
-				MX6UL_PAD_GPIO1_IO06__ENET2_MDIO	0x1b0b0
+				MX6UL_PAD_GPIO1_IO07__ENET1_MDC		0x1b0b0
+				MX6UL_PAD_GPIO1_IO06__ENET1_MDIO	0x1b0b0
 #ifdef WIFI
 				MX6UL_PAD_GPIO1_IO03__REF_CLK_32K	0x03029	/* WLAN Slow Clock */
 #endif
@@ -471,20 +459,6 @@
 				MX6UL_PAD_ENET1_TX_DATA0__ENET1_TDATA00	0x1b0b0
 				MX6UL_PAD_ENET1_TX_DATA1__ENET1_TDATA01	0x1b0b0
 				MX6UL_PAD_ENET1_TX_CLK__ENET1_REF_CLK1	0x4001b031
-			>;
-		};
-
-		pinctrl_enet2: enet2grp {
-			fsl,pins = <
-				MX6UL_PAD_ENET2_RX_EN__ENET2_RX_EN	0x1b0b0
-				MX6UL_PAD_ENET2_RX_ER__ENET2_RX_ER	0x1b0b0
-				MX6UL_PAD_ENET2_RX_DATA0__ENET2_RDATA00	0x1b0b0
-				MX6UL_PAD_ENET2_RX_DATA1__ENET2_RDATA01	0x1b0b0
-				MX6UL_PAD_ENET2_TX_EN__ENET2_TX_EN	0x1b0b0
-				MX6UL_PAD_ENET2_TX_DATA0__ENET2_TDATA00	0x1b0b0
-				MX6UL_PAD_ENET2_TX_DATA1__ENET2_TDATA01	0x1b0b0
-				MX6UL_PAD_ENET2_TX_CLK__ENET2_REF_CLK2	0x4001b031
-				MX6UL_PAD_JTAG_MOD__GPIO1_IO10		0x1b0b0
 			>;
 		};
 
@@ -558,6 +532,13 @@
 			fsl,pins = <
 				MX6UL_PAD_UART3_TX_DATA__UART3_DCE_TX	0x1b0b1
 				MX6UL_PAD_UART3_RX_DATA__UART3_DCE_RX	0x1b0b1
+			>;
+		};
+
+		pinctrl_uart8: uart8grp {
+			fsl,pins = <
+				MX6UL_PAD_ENET2_TX_DATA1__UART8_DCE_TX	0x1b0b1
+				MX6UL_PAD_ENET2_TX_EN__UART8_DCE_RX	0x1b0b1
 			>;
 		};
 
