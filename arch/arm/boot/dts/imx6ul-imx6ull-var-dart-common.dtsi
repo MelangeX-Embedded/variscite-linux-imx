@@ -233,8 +233,6 @@
 
 &adc1 {
 	vref-supply = <&touch_3v3_regulator>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_adc1>;
 	status = "okay";
 };
 
@@ -743,17 +741,6 @@
 		pinctrl_ecspi2_sdcard_cs: ecspi2_cs0 {
 			fsl,pins = <
 				MX6UL_PAD_SD1_CMD__GPIO2_IO16 		0x100b1
-			>;
-		};
-
-		pinctrl_adc1: adc1grp {
-			fsl,pins = <
-				MX6UL_PAD_GPIO1_IO00__GPIO1_IO00	0x100b1 /* D6ANA_P1 */
-				MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0x100b1 /* D6ANA_P2 */
-				MX6UL_PAD_GPIO1_IO02__GPIO1_IO02	0x100b1 /* D6ANA_P3 */
-				MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0x100b1 /* D6ANA_P4 */
-				MX6UL_PAD_GPIO1_IO05__GPIO1_IO05	0x100b1 /* D6ANA_P5 */
-				MX6UL_PAD_GPIO1_IO09__GPIO1_IO09	0x100b1 /* D6ANA_P6 */
 			>;
 		};
 	};
