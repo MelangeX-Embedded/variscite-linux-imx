@@ -422,6 +422,12 @@
 		touchscreen-inverted-y;
 	};
 
+	eeprom@52 {
+		compatible = "atmel,24c04";
+		reg = <0x52>;
+		pagesize = <16>;
+	};
+
 	/* DS1337 RTC module */
 	rtc@0x68 {
 		compatible = "dallas,ds1337";
