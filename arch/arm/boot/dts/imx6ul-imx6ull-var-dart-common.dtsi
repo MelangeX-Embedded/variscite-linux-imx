@@ -401,6 +401,7 @@
 		reg = <0x5d>;
 		interrupt-parent = <&gpio4>;
 		interrupts = <17 0>;
+		irq-gpios = <&gpio4 17 0>;
 		reset-gpios = <&gpio4 20 0>;
 	};
 };
