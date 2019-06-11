@@ -404,17 +404,6 @@
 		clock-names = "mclk";
 	};
 
-	ft5x06_ts@38 {
-		compatible = "edt,edt-ft5x06";
-		reg = <0x38>;
-		interrupt-parent = <&gpio3>;
-		interrupts = <4 0>;
-		touchscreen-size-x = <800>;
-		touchscreen-size-y = <480>;
-		touchscreen-inverted-x;
-		touchscreen-inverted-y;
-	};
-
 	eeprom@52 {
 		compatible = "atmel,24c04";
 		reg = <0x52>;
