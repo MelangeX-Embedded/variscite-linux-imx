@@ -232,21 +232,14 @@
 };
 
 &adc1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_adc1>;
 	vref-supply = <&touch_3v3_regulator>;
 	status = "okay";
 };
 
 &tsc {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_tsc>;
-	xnur-gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;
-	measure_delay_time = <0xffff>;
-	pre_charge_time = <0xfff>;
-#ifdef WIFI
 	status = "disabled";
-#else
-	status = "okay";
-#endif
 };
 
 /* Console UART */
@@ -447,7 +440,6 @@
 		pinctrl_hog_1: hoggrp-1 {
 			fsl,pins = <
 				MX6UL_PAD_CSI_HSYNC__GPIO4_IO20		0x1b0b0	/* User LED */
-				MX6UL_PAD_GPIO1_IO00__GPIO1_IO00	0x17059	/* User Button */
 				MX6UL_PAD_GPIO1_IO07__ENET1_MDC		0x1b0b0
 				MX6UL_PAD_GPIO1_IO06__ENET1_MDIO	0x1b0b0
 #ifdef WIFI
@@ -689,15 +681,6 @@
 			>;
 		};
 
-		pinctrl_tsc: tscgrp {
-			fsl,pins = <
-				MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0xb0
-				MX6UL_PAD_GPIO1_IO02__GPIO1_IO02	0xb0
-				MX6UL_PAD_GPIO1_IO03__GPIO1_IO03	0xb0
-				MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0xb0
-			>;
-		};
-
 		pinctrl_sai1: sai1grp {
 			fsl,pins = <
 				MX6UL_PAD_CSI_DATA05__SAI1_TX_BCLK	0x11088
@@ -734,6 +717,17 @@
 		pinctrl_ecspi2_sdcard_cs: ecspi2_cs0 {
 			fsl,pins = <
 				MX6UL_PAD_SD1_CMD__GPIO2_IO16 		0x100b1
+			>;
+		};
+
+		pinctrl_adc1: adc1grp {
+			fsl,pins = <
+				MX6UL_PAD_GPIO1_IO00__GPIO1_IO00	0xb0 /* D6ANA_P1 */
+				MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0xb0 /* D6ANA_P2 */
+				MX6UL_PAD_GPIO1_IO02__GPIO1_IO02	0xb0 /* D6ANA_P3 */
+				MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0xb0 /* D6ANA_P4 */
+				MX6UL_PAD_GPIO1_IO05__GPIO1_IO05	0xb0 /* D6ANA_P5 */
+				MX6UL_PAD_GPIO1_IO09__GPIO1_IO09	0xb0 /* D6ANA_P6 */
 			>;
 		};
 	};
