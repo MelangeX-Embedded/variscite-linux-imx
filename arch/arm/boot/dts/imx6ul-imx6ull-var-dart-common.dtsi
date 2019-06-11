@@ -428,14 +428,15 @@
 		pagesize = <16>;
 	};
 
-	/* DS1337 RTC module */
+	/* ISL12057 RTC chip */
 	rtc@0x68 {
-		compatible = "dallas,ds1337";
+		compatible = "isil,isl12057";
 		reg = <0x68>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_rtc>;
 		interrupt-parent = <&gpio5>;
 		interrupts = <7 IRQ_TYPE_EDGE_FALLING>;
+
 	};
 };
 
