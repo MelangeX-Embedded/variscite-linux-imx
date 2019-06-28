@@ -409,7 +409,7 @@
 
 		pinctrl_rtc: rtcgrp {
 			fsl,pins = <
-				MX8MQ_IOMUXC_GPIO1_IO15_GPIO1_IO15 		0xc1
+				MX8MQ_IOMUXC_SAI5_RXD2_GPIO3_IO23              	0xc1
 			>;
 		};
 
@@ -669,15 +669,15 @@
 	pinctrl-0 = <&pinctrl_i2c2>;
 	status = "okay";
 
-	/* DS1337 RTC module */
+	/* ISL12057 RTC module */
 	rtc@0x68 {
 		status = "okay";
-		compatible = "dallas,ds1337";
+		compatible = "isil,isl12057";
 		reg = <0x68>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_rtc>;
-		interrupt-parent = <&gpio1>;
-		interrupts = <15 IRQ_TYPE_EDGE_FALLING>;
+		interrupt-parent = <&gpio3>;
+		interrupts = <23 IRQ_TYPE_EDGE_FALLING>;
 	};
 
 	/* Capacitive touch controller */
