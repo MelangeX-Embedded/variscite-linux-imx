@@ -799,7 +799,7 @@
 	pinctrl-0 = <&pinctrl_pcie0>;
 	reset-gpio = <&gpio4 7 GPIO_ACTIVE_LOW>;
 	ext_osc = <1>;
-	status = "okay";
+	status = "disabled";
 };
 
 &pcie1 {
