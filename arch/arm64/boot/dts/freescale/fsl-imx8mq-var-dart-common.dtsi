@@ -173,6 +173,8 @@
 				MX8MQ_IOMUXC_SAI2_RXFS_GPIO4_IO21               0x56	/* TSC (Goodix) reset pin */
 				MX8MQ_IOMUXC_NAND_ALE_GPIO3_IO0                	0x56	/* SPI_DUART_RESET */ 
 				MX8MQ_IOMUXC_SAI5_RXD3_GPIO3_IO24               0xC6	/* SPI CAN driver interrupt pin */
+				MX8MQ_IOMUXC_NAND_READY_B_GPIO3_IO16            0x56	/* EC21 LTE modem reset */
+				MX8MQ_IOMUXC_NAND_WE_B_GPIO3_IO17               0x56	/* EC21 LTE modem pwrkey */
 			>;
 		};
 
