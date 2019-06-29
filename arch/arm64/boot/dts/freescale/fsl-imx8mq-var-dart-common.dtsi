@@ -171,12 +171,33 @@
 			fsl,pins = <
 				MX8MQ_IOMUXC_SAI5_RXC_GPIO3_IO20		0xC6 	/* TSC (Goodix) interrupt pin */
 				MX8MQ_IOMUXC_SAI2_RXFS_GPIO4_IO21               0x56	/* TSC (Goodix) reset pin */
+				MX8MQ_IOMUXC_NAND_CLE_GPIO3_IO5                 0x56	/* TSC Wake (Goodix wake) (unused) */
 				MX8MQ_IOMUXC_NAND_ALE_GPIO3_IO0                	0x56	/* SPI_DUART_RESET */ 
 				MX8MQ_IOMUXC_SAI5_RXD3_GPIO3_IO24               0xC6	/* SPI CAN driver interrupt pin */
 				MX8MQ_IOMUXC_NAND_READY_B_GPIO3_IO16            0x56	/* EC21 LTE modem reset */
 				MX8MQ_IOMUXC_NAND_WE_B_GPIO3_IO17               0x56	/* EC21 LTE modem pwrkey */
+				MX8MQ_IOMUXC_GPIO1_IO06_GPIO1_IO6               0x56	/* RESET CODEC Audiod Codec (LTE) */
 				MX8MQ_IOMUXC_NAND_WP_B_GPIO3_IO18               0x76	/* RST_ETHSW Eth bridge reset */
 				MX8MQ_IOMUXC_SAI5_MCLK_GPIO3_IO25               0xC6	/* ETHSW_INTR_N ETH bridge intr */
+				MX8MQ_IOMUXC_SAI1_RXFS_GPIO4_IO0                0x56	/* LCD_ON_OFF */
+				MX8MQ_IOMUXC_NAND_DATA03_GPIO3_IO9              0x56	/* DRVGRN NFC LED green */
+				MX8MQ_IOMUXC_NAND_DATA02_GPIO3_IO8              0x56   	/* DRVRED NFC LED red */ 
+				MX8MQ_IOMUXC_NAND_DATA04_GPIO3_IO10             0x56	/* DRVBLUE NFC LED blue */
+				MX8MQ_IOMUXC_SAI5_RXFS_GPIO3_IO19               0x56    /* NFC M4 reset */ 
+				MX8MQ_IOMUXC_NAND_DATA07_GPIO3_IO13             0x56	/* SSRLY3 Relay 3 */
+				MX8MQ_IOMUXC_NAND_DATA06_GPIO3_IO12             0x56	/* SSRLY2 Relay 2 */
+				MX8MQ_IOMUXC_NAND_RE_B_GPIO3_IO15               0xC6	/* SSRLY ACC */
+				MX8MQ_IOMUXC_NAND_DATA05_GPIO3_IO11             0x56	/* SSRLY1 Relay 1 */
+				MX8MQ_IOMUXC_SAI2_TXFS_GPIO4_IO24               0xC6	/* DACCIN ACC key position */
+				MX8MQ_IOMUXC_SAI2_MCLK_GPIO4_IO27               0xC6	/* DIGIN4 Digital IO in 4 */
+				MX8MQ_IOMUXC_SAI2_TXC_GPIO4_IO25                0xC6	/* DIGIN3 Digital IO in 3 */
+				MX8MQ_IOMUXC_SAI2_RXD0_GPIO4_IO23               0xC6	/* DIGIN2 Digital IO in 2 */
+				MX8MQ_IOMUXC_SAI2_TXD0_GPIO4_IO26               0xC6	/* DIGIN1 Digital IO in 1 */
+				MX8MQ_IOMUXC_SAI1_TXFS_GPIO4_IO10               0x56	/* 5V PWRON 5V control switch */
+				MX8MQ_IOMUXC_SAI1_TXD4_GPIO4_IO16               0xD6 	/* PIC.PGD PIC Procc PwrON Mng */
+				MX8MQ_IOMUXC_SAI1_MCLK_GPIO4_IO20               0x56	/* PIC.PGC PIC Procc PwrOn Mng */
+				MX8MQ_IOMUXC_SAI1_RXC_GPIO4_IO1                 0x56	/* PIC.MCLR PIC Procc PwrON Mng */
+				MX8MQ_IOMUXC_GPIO1_IO03_GPIO1_IO3               0x56    /* MJ3 PWRDN Cam interface */
 			>;
 		};
 
