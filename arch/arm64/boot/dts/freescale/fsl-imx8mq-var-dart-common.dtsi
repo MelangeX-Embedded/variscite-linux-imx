@@ -155,6 +155,7 @@
 				MX8MQ_IOMUXC_SAI2_RXFS_GPIO4_IO21               0x56	/* TSC (Goodix) reset pin */
 				MX8MQ_IOMUXC_NAND_CLE_GPIO3_IO5                 0x56	/* TSC Wake (Goodix wake) (unused) */
 				MX8MQ_IOMUXC_NAND_ALE_GPIO3_IO0                	0x56	/* SPI_DUART_RESET */ 
+				MX8MQ_IOMUXC_SAI5_RXD1_GPIO3_IO22               0xC6	/* SPI DUART driver interrupt pin */
 				MX8MQ_IOMUXC_SAI5_RXD3_GPIO3_IO24               0xC6	/* SPI CAN driver interrupt pin */
 				MX8MQ_IOMUXC_NAND_READY_B_GPIO3_IO16            0x56	/* EC21 LTE modem reset */
 				MX8MQ_IOMUXC_NAND_WE_B_GPIO3_IO17               0x56	/* EC21 LTE modem pwrkey */
@@ -1057,7 +1058,7 @@
 		reg = <0>;
 		clocks = <&sc16is752_clk0>;
 		interrupt-parent = <&gpio3>;
-		interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
+		interrupts = <22 IRQ_TYPE_EDGE_FALLING>;
 		spi-max-frequency = <6000000>;
 
 		sc16is752_clk0: sc16is752_0_clk {
