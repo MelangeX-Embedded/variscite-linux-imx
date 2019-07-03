@@ -176,7 +176,7 @@
 				MX8MQ_IOMUXC_SAI5_RXD3_GPIO3_IO24               0xC6	/* SPI CAN driver interrupt pin */
 				MX8MQ_IOMUXC_NAND_READY_B_GPIO3_IO16            0x56	/* EC21 LTE modem reset */
 				MX8MQ_IOMUXC_NAND_WE_B_GPIO3_IO17               0x56	/* EC21 LTE modem pwrkey */
-				MX8MQ_IOMUXC_GPIO1_IO06_GPIO1_IO6               0x56	/* RESET CODEC Audiod Codec (LTE) */
+				MX8MQ_IOMUXC_GPIO1_IO06_GPIO1_IO6               0x76	/* RESET CODEC Audiod Codec (LTE) */
 				MX8MQ_IOMUXC_NAND_WP_B_GPIO3_IO18               0x76	/* RST_ETHSW Eth bridge reset */
 				MX8MQ_IOMUXC_SAI5_MCLK_GPIO3_IO25               0xC6	/* ETHSW_INTR_N ETH bridge intr */
 				MX8MQ_IOMUXC_SAI1_RXFS_GPIO4_IO0                0x56	/* LCD_ON_OFF */
