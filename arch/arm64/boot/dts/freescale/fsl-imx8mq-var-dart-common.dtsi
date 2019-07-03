@@ -182,6 +182,7 @@
 				MX8MQ_IOMUXC_SAI1_RXC_GPIO4_IO1                 0x56	/* PIC.MCLR PIC Procc PwrON Mng */
 				MX8MQ_IOMUXC_GPIO1_IO03_GPIO1_IO3               0x56    /* MJ3 PWRDN Cam interface */
 				MX8MQ_IOMUXC_GPIO1_IO01_GPIO1_IO1               0x56	/* MJ3 TRIG */
+				MX8MQ_IOMUXC_SAI5_RXD0_GPIO3_IO21               0xC6	/* PBUTN (push button) */
 			>;
 		};
 
