@@ -1075,6 +1075,7 @@
 		clocks = <&mcp2515_clk0>;
 		interrupt-parent = <&gpio3>;
 		interrupts = <24 IRQ_TYPE_EDGE_FALLING>;
+		spi-max-frequency = <6000000>;
 		/*
 		vdd-supply = <&reg5v0>;
 		xceiver-supply = <&reg5v0>;
