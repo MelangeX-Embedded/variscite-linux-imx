@@ -72,7 +72,7 @@ const struct linux_logo * __ref fb_find_logo(int depth)
 		logo = &logo_superh_vga16;
 #endif
 	}
-	
+
 	if (depth >= 8) {
 #ifdef CONFIG_LOGO_LINUX_CLUT224
 		/* Generic Linux logo */
@@ -81,6 +81,10 @@ const struct linux_logo * __ref fb_find_logo(int depth)
 #ifdef CONFIG_LOGO_VARISCITE_CLUT224
 		/* Variscite Linux logo */
 		logo = &logo_variscite_clut224;
+#endif
+#ifdef CONFIG_LOGO_RADARVISION_CLUT224
+		/* Radarvision (Stutgart) Linux logo */
+		logo = &logo_radarvision_clut224;
 #endif
 #ifdef CONFIG_LOGO_BLACKFIN_CLUT224
 		/* Blackfin Linux logo */
