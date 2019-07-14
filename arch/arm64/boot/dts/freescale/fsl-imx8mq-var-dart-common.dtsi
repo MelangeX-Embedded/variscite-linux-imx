@@ -703,16 +703,6 @@
 		touchscreen-inverted-y;
 	};
 
-	/* USB-C controller */
-	typec_ptn5150: typec@3d {
-		status = "okay";
-		compatible = "nxp,ptn5150";
-		reg = <0x3d>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_typec>;
-		connect-gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>;
-	};
-
 	ov5640_mipi1: ov5640_mipi1@3c {
 		status = "okay";
 		compatible = "ovti,ov5640_mipi";
@@ -868,8 +858,7 @@
 
 &usb_dwc3_0 {
 	status = "okay";
-	extcon = <&typec_ptn5150>;
-	dr_mode = "otg";
+	dr_mode = "host";
 };
 
 &usb3_phy1 {
