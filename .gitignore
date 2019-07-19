@@ -122,3 +122,7 @@ all.config
 
 # Kdevelop4
 *.kdev4
+
+# Yocto out of tree development
+arch/arm64/configs/validator_defconfig
+drivers/video/logo/logo_radarvision_clut224.ppm
