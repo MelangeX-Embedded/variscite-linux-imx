@@ -46,14 +46,6 @@
 	status = "okay";
 };
 
-&pwm1 {
-	status = "okay";
-};
-
-&backlight {
-	status = "okay";
-};
-
 &dsi_lvds_bridge {
 	status = "okay";
 };

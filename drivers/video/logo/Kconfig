@@ -31,6 +31,10 @@ config LOGO_VARISCITE_CLUT224
 	bool "224-color Variscite Linux logo"
 	default y
 
+config LOGO_RADARVISION_CLUT224
+	bool "224-color Radarvsion (Stutgart) Linux logo"
+	default y
+
 config LOGO_BLACKFIN_VGA16
 	bool "16-colour Blackfin Processor Linux logo"
 	depends on BLACKFIN
