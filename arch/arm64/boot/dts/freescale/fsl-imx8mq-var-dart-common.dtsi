@@ -618,8 +618,8 @@
 		ti,dsi-lanes = <4>;
 		ti,lvds-format = <2>;
 		ti,lvds-bpp = <24>;
-		ti,width-mm = <120>;
-		ti,height-mm = <76>;
+		ti,width-mm = <108>;
+		ti,height-mm = <64>;
 		enable-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds>;
@@ -768,8 +768,6 @@
 		interrupts = <20 0>;
 		touchscreen-size-x = <800>;
 		touchscreen-size-y = <480>;
-		touchscreen-inverted-x;
-		touchscreen-inverted-y;
 	};
 };
 
