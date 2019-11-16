@@ -951,7 +951,7 @@ static void imx_break_ctl(struct uart_port *port, int break_state)
 
 #define TXTL 2 /* reset default */
 #define RXTL 1 /* For console port */
-#define RXTL_UART 16 /* For uart */
+#define RXTL_UART 1 /* For uart */
 
 static int imx_setup_ufcr(struct imx_port *sport, unsigned int mode)
 {
