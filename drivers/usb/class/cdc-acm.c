@@ -875,7 +875,7 @@ static int acm_tty_tiocmget(struct tty_struct *tty)
 	       (acm->ctrlin  & ACM_CTRL_DSR ? TIOCM_DSR : 0) |
 	       (acm->ctrlin  & ACM_CTRL_RI  ? TIOCM_RI  : 0) |
 	       (acm->ctrlin  & ACM_CTRL_DCD ? TIOCM_CD  : 0) |
-	       TIOCM_CTS;
+	       (acm->ctrlin  & ACM_CTRL_CTS ? TIOCM_CTS : 0);
 }
 
 static int acm_tty_tiocmset(struct tty_struct *tty,
@@ -983,8 +983,6 @@ static int wait_serial_change(struct acm *acm, unsigned long arg)
 				rv = -ERESTARTSYS;
 		}
 	} while (!rv);
-
-	
 
 	return rv;
 }
