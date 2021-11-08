@@ -291,7 +291,7 @@
 						  */
 
 /* Misc definitions */
-#define SC16IS7XX_FIFO_SIZE		(64)
+#define SC16IS7XX_FIFO_SIZE		(80)
 #define SC16IS7XX_REG_SHIFT		2
 
 struct sc16is7xx_devtype {
@@ -1041,6 +1041,13 @@ static int sc16is7xx_startup(struct uart_port *port)
 	/* Enable RX, TX interrupts */
 	val = SC16IS7XX_IER_RDI_BIT | SC16IS7XX_IER_THRI_BIT;
 	sc16is7xx_port_write(port, SC16IS7XX_IER_REG, val);
+
+	/* set RX FIFO trigger level */
+	val = SC16IS7XX_TLR_RX_TRIGGER(16);
+	//sc16is7xx_port_write(port, SC16IS7XX_TLR_REG, val);
+	sc16is7xx_port_update(port, SC16IS7XX_TLR_REG,
+				val,
+				val);
 
 	return 0;
 }
