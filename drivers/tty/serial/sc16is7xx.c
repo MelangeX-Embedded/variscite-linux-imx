@@ -611,19 +611,21 @@ static void sc16is7xx_handle_rx(struct uart_port *port, unsigned int rxlen,
 				flag = TTY_FRAME;
 			else if (lsr & SC16IS7XX_LSR_OE_BIT)
 				flag = TTY_OVERRUN;
+
+			for (i = 0; i < bytes_read; ++i) {
+				ch = s->buf[i];
+
+				if (lsr & port->ignore_status_mask)
+					continue;
+
+				uart_insert_char(port, lsr, SC16IS7XX_LSR_OE_BIT, ch,
+						 flag);
+			}
+		} else {
+			tty_insert_flip_string(&port->state->port, s->buf,
+					       bytes_read);
 		}
 
-		for (i = 0; i < bytes_read; ++i) {
-			ch = s->buf[i];
-			if (uart_handle_sysrq_char(port, ch))
-				continue;
-
-			if (lsr & port->ignore_status_mask)
-				continue;
-
-			uart_insert_char(port, lsr, SC16IS7XX_LSR_OE_BIT, ch,
-					 flag);
-		}
 		rxlen -= bytes_read;
 	}
 
@@ -1043,7 +1045,7 @@ static int sc16is7xx_startup(struct uart_port *port)
 	sc16is7xx_port_write(port, SC16IS7XX_IER_REG, val);
 
 	/* set RX FIFO trigger level */
-	val = SC16IS7XX_TLR_RX_TRIGGER(16);
+	val = SC16IS7XX_TLR_RX_TRIGGER(10);
 	//sc16is7xx_port_write(port, SC16IS7XX_TLR_REG, val);
 	sc16is7xx_port_update(port, SC16IS7XX_TLR_REG,
 				val,
