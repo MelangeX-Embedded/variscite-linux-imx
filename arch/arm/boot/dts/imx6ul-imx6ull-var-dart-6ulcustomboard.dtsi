@@ -199,12 +199,6 @@
 		>;
 	};
 
-	pinctrl_ecspi1_duart2_cs: ecspi1_cs1 {
-		fsl,pins = <
-			MX6UL_PAD_LCD_DATA09__GPIO3_IO14	0x100b1 /* SPI_DUART2_CS */
-		>;
-	};
-
 	pinctrl_ecspi1_nvsram_cs: ecspi1_cs2 {
 		fsl,pins = <
 			MX6UL_PAD_LCD_DATA11__GPIO3_IO16	0x100b1 /* NVSRAM_CS */
@@ -270,19 +264,13 @@
 &ecspi1 {
 	fsl,spi-num-chipselects = <3>;
 	cs-gpios =	<&gpio3 18 1>,
-			<&gpio3 14 1>,
-			/*
 			<&gpio3 16 1>,
-			*/
 			<&gpio3 10 1>;
 	pinctrl-names = "default";
 	pinctrl-0 = <
 		&pinctrl_ecspi1
 		&pinctrl_ecspi1_duart1_cs
-		&pinctrl_ecspi1_duart2_cs
-		/*
 		&pinctrl_ecspi1_nvsram_cs
-		*/
 		&pinctrl_ecspi1_ss1_cs
 		>;
 	status = "okay";
@@ -294,10 +282,6 @@
 		interrupt-parent = <&gpio1>;
 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
 		spi-max-frequency = <4000000>;
-		/*
-		gpio-controller;
-		#gpio-cells = <2>;
-		*/
 		sc16is752_clk0: sc16is752_0_clk {
 			compatible = "fixed-clock";
 			#clock-cells = <0>;
@@ -305,39 +289,21 @@
 		};
 	};
 
-	SPI_DUART2: sc16is752@1 {
-		compatible = "nxp,sc16is752";
-		reg = <1>;
-		clocks = <&sc16is752_clk1>;
-		interrupt-parent = <&gpio4>;
-		interrupts = <20 IRQ_TYPE_EDGE_FALLING>;
-		spi-max-frequency = <4000000>;
-		/*
-		gpio-controller;
-		#gpio-cells = <2>;
-		*/
-		sc16is752_clk1: sc16is752_1_clk {
-			compatible = "fixed-clock";
-			#clock-cells = <0>;
-			clock-frequency = <11059200>;
-		};
-	};
-
-/*
-	NVSRSM: spi_sram@2 {
+	NVSRSM: spi_sram@1 {
 		#address-cells = <1>;
 		#size-cells = <1>;
 		compatible = "microchip,mchp23lcv1024";
-		reg = <2>;
+		reg = <1>;
 		spi-max-frequency = <6000000>;
+		status = "okay";
 	};
-*/
 
-	ECSPI1_SS1: spidev@2 {
+	ECSPI1_SS1: spidev@1 {
 		compatible = "spidev";
 		spi-max-frequency = <6000000>;
 		reg = <2>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+		status = "disable";
 	};
 };
