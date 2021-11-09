@@ -43,6 +43,7 @@
 #define ACM_CTRL_DSR		0x02
 #define ACM_CTRL_BRK		0x04
 #define ACM_CTRL_RI		0x08
+#define ACM_CTRL_CTS		0x0100
 
 #define ACM_CTRL_FRAMING	0x10
 #define ACM_CTRL_PARITY		0x20
