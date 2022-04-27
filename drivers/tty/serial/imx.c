@@ -1233,7 +1233,7 @@ static void imx_uart_clear_rx_errors(struct imx_port *sport)
 #define TXTL_DEFAULT 2 /* reset default */
 #define RXTL_DEFAULT 1 /* reset default */
 #define TXTL_DMA 8 /* DMA burst setting */
-#define RXTL_DMA 1 /* DMA burst setting */
+#define RXTL_DMA 2 /* DMA burst setting */
 
 static void imx_uart_setup_ufcr(struct imx_port *sport,
 				unsigned char txwl, unsigned char rxwl)
