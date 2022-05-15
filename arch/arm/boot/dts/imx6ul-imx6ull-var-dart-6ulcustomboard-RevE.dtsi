@@ -75,7 +75,7 @@
 		fsl,pins = <
 			/* gpios */
 			MX6UL_PAD_SNVS_TAMPER5__GPIO5_IO05	0x5800A0 /* SCC_AB */
-			MX6UL_PAD_SNVS_TAMPER3__GPIO5_IO03	0x5800A0 /* SCC_DC */
+			MX6UL_PAD_SNVS_TAMPER3__GPIO5_IO03	0x5800A0 /* SOM LED Green blinky */
 			MX6UL_PAD_LCD_DATA02__GPIO3_IO07	0x5800A0 /* SCC_CE */
 			MX6UL_PAD_LCD_DATA16__GPIO3_IO21	0x5800A0 /* SCC_D4 */
 			MX6UL_PAD_LCD_DATA18__GPIO3_IO23	0x5800A0 /* SCC_D6 */
@@ -147,22 +147,24 @@
 		fsl,pins = <
 			MX6UL_PAD_UART3_TX_DATA__UART3_DCE_TX	0x1b0b1
 			MX6UL_PAD_UART3_RX_DATA__UART3_DCE_RX	0x1b0b1
-			MX6UL_PAD_UART3_CTS_B__UART3_DCE_CTS	0x1b0b1
-			MX6UL_PAD_UART3_RTS_B__UART3_DCE_RTS	0x1b0b1
 		>;
 	};
 
 	pinctrl_uart4: uart4grp {
 		fsl,pins = <
-			MX6UL_PAD_LCD_CLK__UART4_DCE_TX		0x1b0b1
-			MX6UL_PAD_LCD_ENABLE__UART4_DCE_RX	0x1b0b1
+			MX6UL_PAD_LCD_CLK__UART4_DTE_RX		0x1b0b1
+			MX6UL_PAD_LCD_ENABLE__UART4_DTE_TX	0x1b0b1
+			MX6UL_PAD_LCD_VSYNC__UART4_DTE_CTS      0x1b0b1
+			MX6UL_PAD_LCD_HSYNC__UART4_DTE_RTS      0x1b0b1
 		>;
 	};
 
 	pinctrl_uart5: uart5grp {
 		fsl,pins = <
-			MX6UL_PAD_CSI_DATA00__UART5_DCE_TX	0x1b0b1
-			MX6UL_PAD_CSI_DATA01__UART5_DCE_RX	0x1b0b1
+			MX6UL_PAD_CSI_DATA00__UART5_DTE_RX	0x1b0b1
+			MX6UL_PAD_CSI_DATA01__UART5_DTE_TX	0x1b0b1
+			MX6UL_PAD_CSI_DATA02__UART5_DTE_CTS	0x1b0b1
+			MX6UL_PAD_CSI_DATA03__UART5_DTE_RTS     0x1b0b1
 		>;
 	};
 
@@ -214,7 +216,6 @@
 &uart3 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart3>;
-	fsl,uart-has-rtscts;
 	status = "okay";
 };
 
@@ -222,6 +223,8 @@
 &uart4 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart4>;
+	fsl,uart-has-rtscts;
+	fsl,dte-mode;
 	status = "okay";
 };
 
@@ -229,6 +232,8 @@
 &uart5 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart5>;
+	fsl,uart-has-rtscts;
+	fsl,dte-mode;
 	status = "okay";
 };
 
