@@ -274,6 +274,7 @@
 		interrupt-parent = <&gpio1>;
 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
 		spi-max-frequency = <4000000>;
+		status = "okay";
 		sc16is752_clk0: sc16is752_0_clk {
 			compatible = "fixed-clock";
 			#clock-cells = <0>;
