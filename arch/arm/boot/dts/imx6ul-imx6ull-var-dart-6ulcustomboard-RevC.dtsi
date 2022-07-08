@@ -248,6 +248,7 @@
 	fsl,ext-reset-output;
 };
 
+
 &ecspi1 {
 	fsl,spi-num-chipselects = <3>;
 	cs-gpios =	<&gpio3 18 1>,
@@ -262,6 +263,12 @@
 		>;
 	status = "okay";
 
+	sc16is752_clk0: sc16is752_0_clk {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <11059200>;
+	};
+
 	SPI_DUART1: sc16is752@0 {
 		compatible = "nxp,sc16is752";
 		reg = <0>;
@@ -270,11 +277,6 @@
 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
 		spi-max-frequency = <4000000>;
 		status = "okay";
-		sc16is752_clk0: sc16is752_0_clk {
-			compatible = "fixed-clock";
-			#clock-cells = <0>;
-			clock-frequency = <11059200>;
-		};
 	};
 
 	NVSRSM: spi_sram@1 {
