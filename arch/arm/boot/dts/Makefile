@@ -682,6 +682,9 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
 	imx6ul-tx6ul-mainboard.dtb \
 	imx6ul-var-dart-6ulcustomboard-emmc-sd-card.dtb \
 	imx6ul-var-dart-6ulcustomboard-emmc-wifi.dtb \
+	imx6ull-var-dart-6ulcustomboard-emmc-wifi-RevC.dtb \
+	imx6ull-var-dart-6ulcustomboard-emmc-wifi-RevD.dtb \
+	imx6ull-var-dart-6ulcustomboard-emmc-wifi-RevE.dtb \
 	imx6ul-var-dart-6ulcustomboard-nand-sd-card.dtb \
 	imx6ul-var-dart-6ulcustomboard-nand-wifi.dtb \
 	imx6ul-var-som-concerto-board-emmc-sd-card.dtb \
