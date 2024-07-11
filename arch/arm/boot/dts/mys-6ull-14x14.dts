@@ -10,6 +10,7 @@
 / {
 	model = "MYiR MYS-6ULL Board";
 	compatible = "fsl,imx6ull-14x14-evk", "fsl,imx6ull";
+	version_stuttgart = "1.0.4"
 };
 
 &clks {
