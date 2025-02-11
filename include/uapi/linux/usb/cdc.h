@@ -274,6 +274,7 @@ struct usb_cdc_line_coding {
 /* Control Signal Bitmap Values from 6.2.14 SetControlLineState */
 #define USB_CDC_CTRL_DTR			(1 << 0)
 #define USB_CDC_CTRL_RTS			(1 << 1)
+#define USB_CDC_CTRL_CTS			(1 << 2)
 
 /* table 62; bits in multicast filter */
 #define	USB_CDC_PACKET_TYPE_PROMISCUOUS		(1 << 0)

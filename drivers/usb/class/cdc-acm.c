@@ -935,6 +935,7 @@ static int acm_tty_tiocmget(struct tty_struct *tty)
 	       (acm->ctrlin  & USB_CDC_SERIAL_STATE_DSR ? TIOCM_DSR : 0) |
 	       (acm->ctrlin  & USB_CDC_SERIAL_STATE_RING_SIGNAL ? TIOCM_RI : 0) |
 	       (acm->ctrlin  & USB_CDC_SERIAL_STATE_DCD ? TIOCM_CD : 0) |
+	       (acm->ctrlin  & USB_CDC_CTRL_CTS ? TIOCM_CTS : 0) | 
 	       TIOCM_CTS;
 }
 
