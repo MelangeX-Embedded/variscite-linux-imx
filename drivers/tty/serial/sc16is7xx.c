@@ -302,7 +302,7 @@
 
 /* Misc definitions */
 #define SC16IS7XX_SPI_READ_BIT		BIT(7)
-#define SC16IS7XX_FIFO_SIZE		(64)
+#define SC16IS7XX_FIFO_SIZE		(80)
 #define SC16IS7XX_GPIOS_PER_BANK	4
 
 struct sc16is7xx_devtype {
@@ -1190,6 +1190,10 @@ static int sc16is7xx_startup(struct uart_port *port)
 	val = SC16IS7XX_IER_RDI_BIT | SC16IS7XX_IER_CTSI_BIT |
 	      SC16IS7XX_IER_MSI_BIT;
 	sc16is7xx_port_write(port, SC16IS7XX_IER_REG, val);
+
+	/* set RX FIFO trigger level */
+	val = SC16IS7XX_TLR_RX_TRIGGER(10);
+	sc16is7xx_port_update(port, SC16IS7XX_TLR_REG, val, val);
 
 	/* Enable modem status polling */
 	uart_port_lock_irqsave(port, &flags);
