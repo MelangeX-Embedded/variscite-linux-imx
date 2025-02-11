@@ -387,6 +387,9 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
 	imx6ul-var-dart-6ulcustomboard-emmc-wifi-iw61x.dtb \
 	imx6ul-var-dart-6ulcustomboard-emmc-wifi-brcm.dtb \
 	imx6ul-var-dart-6ulcustomboard-emmc-wifi-brcm-wm8731.dtb \
+	imx6ull-var-dart-6ulcustomboard-emmc-wifi-RevC.dtb \
+	imx6ull-var-dart-6ulcustomboard-emmc-wifi-RevD.dtb \
+	imx6ull-var-dart-6ulcustomboard-emmc-wifi-RevE.dtb \
 	imx6ul-var-dart-6ulcustomboard-nand-sd-card.dtb \
 	imx6ul-var-dart-6ulcustomboard-nand-sd-card-wm8731.dtb \
 	imx6ul-var-dart-6ulcustomboard-nand-wifi-iw61x.dtb \
